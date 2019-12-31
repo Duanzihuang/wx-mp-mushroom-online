@@ -1,0 +1,13 @@
+<!--pages/login/login.wxml-->
+<view>
+  <view class="login-container">
+    <image class="logo" src="/assets/images/logo@2x.png" alt="" />
+    <text class="title">蘑菇在线</text>
+    <image class="login-tips" src="/assets/images/login_tips@2x.png" alt="" />
+    <button open-type="getUserInfo" bindgetuserinfo="wxLogin" plain class="wx-login-button">
+      <image class="wx-login-img" src="/assets/images/wx_login@2x.png" alt="" />
+    </button>
+    <text bindtap="phoneLogin" class="phone-login">手机号登录</text>
+    <text class="bottom-tip">Copyright © 2019 蘑菇在线 </text>
+  </view>
+</view>
