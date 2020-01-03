@@ -7,9 +7,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    swipers: [], // 轮播图
-    courses: [], // 推荐课程
-    videos: [] // 热门视频
+    swipers: null, // 轮播图
+    courses: null, // 推荐课程
+    videos: null // 热门视频
   },
 
   /**
@@ -30,17 +30,40 @@ Page({
   },
   // 获取推荐课程数据
   async getRecommendCoursesData() {
-    const res = await fetch({url: 'home/course'})
+    const res = await fetch({ url: 'home/course' })
 
     this.setData({
-      courses: res.data.message
+        courses: res.data.message
     })
   },
+
   // 获取热门视频
   async getHotVideosData() {
     const res = await fetch({url: 'home/video'})
     this.setData({
       videos: res.data.message
+    })
+  },
+
+  // 跳转到课程页面
+  goToCoursePage(){
+    wx.switchTab({
+      url: '/pages/course/course',
+    })
+  },
+
+  // 跳转到课程详情页面
+  goToCourseDetail(e){
+    console.log(e.target.dataset.id)
+    wx.navigateTo({
+      url: `/pages/course-detail/course-detail?id=${e.target.dataset.id}`,
+    })
+  },
+  
+  // 跳转到搜索页面
+  goToSearch(){
+    wx.navigateTo({
+      url: '/pages/search/search',
     })
   }
 })

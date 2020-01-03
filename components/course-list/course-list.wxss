@@ -1,0 +1,50 @@
+/* components/course-list/course-list.wxss */
+.course-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 32rpx;
+}
+
+.course-item {
+  margin-left: 32rpx;
+  margin-top: 32rpx;
+  border-radius: 12rpx;
+  background-color: white;
+  width: 333rpx;
+  height: 368rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.course-item image {
+  margin-top: 58rpx;
+  width: 124rpx;
+  height: 124rpx;
+}
+
+.course-item  .title {
+  margin-top: 28rpx;
+  color: #333;
+  font-weight: bold;
+  font-size: 32rpx;
+}
+
+.course-item  .subtitle {
+  color: #a8a8a8;
+  font-size: 22rpx;
+  margin-top: 12rpx;
+}
+
+.course-item  .level {
+  margin-top: 20rpx;
+  color: #ffb37a;
+  text-align: center;
+  font-size: 24rpx;
+  line-height: 32rpx;
+  width: 92rpx;
+  height: 32rpx;
+  border: 2rpx solid rgba(255, 179, 122, 1);
+  opacity: 1;
+  border-radius: 16rpx;
+}

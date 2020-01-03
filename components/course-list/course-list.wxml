@@ -1,0 +1,11 @@
+<!--components/course-list/course-list.wxml-->
+<view class="course-container">
+	<navigator url="{{'/pages/course-detail/course-detail?id='+item.id}}" class="course-item" wx:for="{{courses}}" wx:key="{{item.id}}">
+		<image src="{{item.icon}}" alt="" />
+		<text class="title">{{item.title}}</text>
+		<text class="subtitle">{{item.subtitle}}</text>
+		<text class="level" wx:if="{{item.level === 1}}">初级</text>
+		<text class="level" wx:elif="{{item.level === 2}}">中级</text>
+		<text class="level" wx:elif="{{item.level === 3}}">高级</text>
+	</navigator>
+</view>

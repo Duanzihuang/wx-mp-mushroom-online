@@ -19,7 +19,7 @@ Page({
     })
   },
   // 获取验证码
-  async getVcode() {
+  getVcode() {
     var reg = /^1[3456789][0-9]{9}$/
     if (!reg.test(this.data.phone)){
       wx.showToast({
@@ -56,19 +56,19 @@ Page({
     }, 1000)
 
     // 发请求，获取验证码
-    const result = await fetch({ url: 'user/vcode', data: { phone: this.data.phone}})
-    
-    const {status} = result.data
+    fetch({ url: 'user/vcode', data: { phone: this.data.phone } }).then(result => {
+      const { status } = result.data
 
-    if (status === 0) {
-      wx.showToast({
-        title: `${result.data.vcode}`,
-        icon:'none'
-      })
-    }
+      if (status === 0) {
+        wx.showToast({
+          title: `${result.data.vcode}`,
+          icon: 'none'
+        })
+      }
+    })
   },
   // 手机号登录
-  async phoneLogin() {
+  phoneLogin() {
     var reg1 = /^1[3456789][0-9]{9}$/
     if (!reg1.test(this.data.phone)) {
       wx.showToast({
@@ -87,7 +87,7 @@ Page({
       return
     }
 
-    const res = await fetch({ 
+    fetch({ 
       url:'user/login',
       method:'POST',
       tip:'登录中...',
@@ -96,29 +96,29 @@ Page({
         phone: this.data.phone,
         vcode: this.data.vcode
       }
+    }).then(res => {
+      const { status } = res.data
+      if (status === 0) {
+        // 提示
+        wx.showToast({
+          title: '手机号登录成功',
+          icon: 'none'
+        })
+
+        // 保存到本地
+        wx.setStorageSync('my_token', res.data.token)
+
+        // 跳转到首页去
+        wx.reLaunch({
+          url: '/pages/home/home',
+        })
+      } else {
+        wx.showToast({
+          title: res.data.message,
+          icon: 'none'
+        })
+      }
     })
-
-    const { status } = res.data
-    if (status === 0) {
-      // 提示
-      wx.showToast({
-        title: '手机号登录成功',
-        icon: 'none'
-      })
-
-      // 保存到本地
-      wx.setStorageSync('my_token', res.data.token)
-
-      // 跳转到首页去
-      wx.reLaunch({
-        url: '/pages/home/home',
-      })
-    } else {
-      wx.showToast({
-        title: res.data.message,
-        icon: 'none'
-      })
-    }
   },
   onUnload: function () {
     // 页面销毁时执行

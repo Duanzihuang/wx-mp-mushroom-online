@@ -5,7 +5,9 @@
     "pages/home/home",
     "pages/course/course",
     "pages/study/study",
-    "pages/my/my"
+    "pages/my/my",
+    "pages/course-detail/course-detail",
+    "pages/search/search"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -14,25 +16,27 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "color": "#000000",
+    "color": "#999",
+    "backgroundColor": "#fff",
     "selectedColor": "#ff9a29",
+    "borderStyle": "white",
     "list": [{
       "pagePath": "pages/home/home",
       "text": "首页",
       "iconPath": "assets/tabs/icon_home@2x.png",
       "selectedIconPath": "assets/tabs/icon_home_selected@2x.png"
     },{
-      "pagePath": "pages/home/home",
+      "pagePath": "pages/course/course",
       "text": "课程",
       "iconPath": "assets/tabs/icon_course@2x.png",
       "selectedIconPath": "assets/tabs/icon_course_selected@2x.png"
     },{
-      "pagePath": "pages/home/home",
+      "pagePath": "pages/study/study",
       "text": "学习",
       "iconPath": "assets/tabs/icon_study@2x.png",
       "selectedIconPath": "assets/tabs/icon_study_selected@2x.png"
     },{
-      "pagePath": "pages/home/home",
+      "pagePath": "pages/my/my",
       "text": "我的",
       "iconPath": "assets/tabs/icon_my@2x.png",
       "selectedIconPath": "assets/tabs/icon_my_selected@2x.png"

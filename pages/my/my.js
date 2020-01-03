@@ -1,66 +1,53 @@
 // pages/my/my.js
+import { fetch } from '../../utils/fetch.js'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    userInfo: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onShow: function (options) {
+    this.getUserInfoData()
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  getUserInfoData() {
+    fetch({ url: 'my/info' }).then(res => {
+      this.setData({
+        userInfo: res.data.message
+      })
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  // 清除缓存
+  clearCache(){
+    wx.showToast({
+      title: '缓存清理中...', //提示的内容,
+      icon: 'loading', //图标,
+      duration: 2000, //延迟时间,
+      mask: true, //显示透明蒙层，防止触摸穿透,
+      success: res => {
+        setTimeout(() => {
+          wx.showToast({
+            title: '清理缓存成功', //提示的内容,
+            icon: 'success', //图标,
+            duration: 1000, //延迟时间,
+            mask: true //显示透明蒙层，防止触摸穿透
+          });
+        }, 2000)
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  
+  // 联系客服
+  contact(){
+    wx.makePhoneCall({
+      phoneNumber: '400-618-9090'
+    })
   }
 })
