@@ -1,2 +1,16 @@
 <!--pages/study/study.wxml-->
-<text>pages/study/study.wxml</text>
+<view class="study-container">
+	<view class="study-item" wx:for="{{studyProgresses}}" wx:key="{{item.sid}}">
+		<image src="{{item.icon}}" alt="" />
+		<view class="meta">
+			<text class="title">{{item.title}}</text>
+			<text class="progress">已学习{{item.study_hour}}课时/{{item.total_hour || 0}}课时</text>
+		</view>
+		<view class="circle">
+			<circle canvasId="{{item.sid}}" progress="{{item.study_progress}}" width="{{55}}" height="{{55}}"></circle>
+		</view>
+	</view>
+	<view wx:if="{{isEmpty}}">
+		<text class="no-study-tip">您还没有任何学习记录哦，赶快去学习吧~</text>
+	</view>
+</view>

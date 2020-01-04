@@ -1,0 +1,11 @@
+/* components/circle/circle.wxss */
+.mp-circle-container {
+  position: relative;
+}
+
+.mp-circle {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+}

@@ -1,4 +1,6 @@
 const BASEURL = 'http://localhost:3000/api/'
+// const BASEURL = 'http://huangjiangjun.top:3000/api/'
+
 const app = getApp()
 
 export const fetch = ({url,method="GET",data,tip='数据加载中...',isNeedAuth=true}) => {
