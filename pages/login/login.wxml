@@ -8,6 +8,6 @@
       <image class="wx-login-img" src="/assets/images/wx_login@2x.png" alt="" />
     </button>
     <text bindtap="phoneLogin" class="phone-login">手机号登录</text>
-    <text class="bottom-tip">Copyright © 2019 蘑菇在线 </text>
+    <text class="bottom-tip">Copyright © 2020 蘑菇在线 </text>
   </view>
 </view>
