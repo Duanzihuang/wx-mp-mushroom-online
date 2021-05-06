@@ -1,5 +1,5 @@
 // pages/my/my.js
-import { fetch } from '../../utils/fetch.js'
+import { request } from '../../utils/request.js'
 Page({
 
   /**
@@ -17,9 +17,9 @@ Page({
   },
 
   getUserInfoData() {
-    fetch({ url: 'my/info' }).then(res => {
+    request({ url: 'my/info' }).then(res => {
       this.setData({
-        userInfo: res.data.message
+        userInfo: res.message
       })
     })
   },
@@ -48,6 +48,6 @@ Page({
   contact(){
     wx.makePhoneCall({
       phoneNumber: '400-618-9090'
-    })
+    }).catch(err => console.log('err is ',err))
   }
 })

@@ -17,7 +17,7 @@
   align-items: center;
 }
 
-.course-item image {
+.course-item .img {
   margin-top: 58rpx;
   width: 124rpx;
   height: 124rpx;

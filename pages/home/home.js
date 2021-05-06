@@ -1,4 +1,4 @@
-import {fetch} from '../../utils/fetch.js'
+import {request} from '../../utils/request.js'
 
 // pages/home/home.js
 Page({
@@ -23,25 +23,25 @@ Page({
 
   // 获取轮播图数据
   async getSwipersData() {
-    const res = await fetch({url: 'home/swipers'})
+    const res = await request({url: 'home/swipers'})
     this.setData({
-      swipers: res.data.message
+      swipers: res.message
     })
   },
   // 获取推荐课程数据
   async getRecommendCoursesData() {
-    const res = await fetch({ url: 'home/course' })
+    const res = await request({ url: 'home/course' })
 
     this.setData({
-        courses: res.data.message
+        courses: res.message
     })
   },
 
   // 获取热门视频
   async getHotVideosData() {
-    const res = await fetch({url: 'home/video'})
+    const res = await request({url: 'home/video'})
     this.setData({
-      videos: res.data.message
+      videos: res.message
     })
   },
 
@@ -54,16 +54,17 @@ Page({
 
   // 跳转到课程详情页面
   goToCourseDetail(e){
-    console.log(e.target.dataset.id)
+    // console.log(e.target.dataset.id)
     wx.navigateTo({
-      url: `/pages/course-detail/course-detail?id=${e.target.dataset.id}`,
+      url: `/subpkg/course-detail/course-detail?id=${e.target.dataset.id}`,
     })
   },
   
   // 跳转到搜索页面
   goToSearch(){
+    // console.log('---goToSearch---')
     wx.navigateTo({
-      url: '/pages/search/search',
+      url: '/subpkg/search/search',
     })
   }
 })

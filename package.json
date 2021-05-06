@@ -1,0 +1,23 @@
+{
+  "name": "wx-mp-mushroom-online",
+  "version": "1.0.0",
+  "description": "微信小程序项目-蘑菇在线",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Duanzihuang/wx-mp-mushroom-online.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Duanzihuang/wx-mp-mushroom-online/issues"
+  },
+  "homepage": "https://github.com/Duanzihuang/wx-mp-mushroom-online#readme",
+  "dependencies": {
+    "@vant/weapp": "^1.6.8"
+  }
+}

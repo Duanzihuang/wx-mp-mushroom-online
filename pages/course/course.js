@@ -1,5 +1,5 @@
 // pages/course/course.js
-import { fetch } from '../../utils/fetch.js'
+import { request } from '../../utils/request.js'
 Page({
 
   /**
@@ -18,9 +18,9 @@ Page({
   },
 
   getCoursesData() {
-    fetch({ url: 'course/list' }).then(res => {
+    request({ url: 'course/list' }).then(res => {
       this.setData({
-        courses: res.data.message
+        courses: res.message
       })
     })
   }

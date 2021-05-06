@@ -4,7 +4,7 @@
 	<search-bar bind:myevent="goToSearch" placeholder="请输入课程的名称"></search-bar>
 	<!-- 轮播图 -->
 	<swiper autoplay circular indicator-active-color="#fff" interval="{{3000}}">
-		<navigator url="{{'/pages/course-detail/course-detail?id='+item.course_id}}" wx:for="{{swipers}}" wx:key="{{item.id}}">
+		<navigator url="{{'/subpkg/course-detail/course-detail?id='+item.course_id}}" wx:for="{{swipers}}" wx:key="id">
 			<swiper-item>
 				<image src="{{item.img_url}}"></image>
 			</swiper-item>
@@ -17,7 +17,8 @@
 			<image bindtap="goToCoursePage" src="/assets/images/arrow@2x.png" alt="" />
 		</view>
 		<scroll-view scroll-x class="course-container">
-			<navigator url="{{'/pages/course-detail/course-detail?id='+item.relation_id}}" class="course-item" wx:for="{{courses}}" wx:key="{{item.id}}">
+			<navigator url="{{'/subpkg/course-detail/course-detail?id='+item.relation_id}}" class="course-item"
+				wx:for="{{courses}}" wx:key="id">
 				<image src="{{item.icon}}" alt="" />
 			</navigator>
 		</scroll-view>
@@ -29,7 +30,8 @@
 			<image bindtap="goToCourseDetail" data-id="{{3}}" src="/assets/images/arrow@2x.png" alt="" />
 		</view>
 		<view class="hot-video">
-			<navigator url="{{'/pages/course-detail/course-detail?id='+item.course_id}}" class="video-item" wx:for="{{videos}}" wx:key="{{item.id}}">
+			<navigator url="{{'/subpkg/course-detail/course-detail?id='+item.course_id}}" class="video-item"
+				wx:for="{{videos}}" wx:key="id">
 				<image src="{{item.cover_photo_url}}" alt="" />
 				<text class="title">{{item.name}}</text>
 				<text class="subtitle">{{item.view_count}}人已观看</text>

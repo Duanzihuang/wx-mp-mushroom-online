@@ -1,7 +1,7 @@
 <!--components/search-bar/search-bar.wxml-->
-<view class="weui-search-bar__box">
+<view class="weui-search-bar__box"  bindtap="goToSearchPage">
   <icon class="weui-icon-search_in-box" type="search" color="#ff8d44" size="15"></icon>
-  <view class="weui-search-bar__input" bindtap="goToSearchPage">
+  <view class="weui-search-bar__input">
     <text>{{placeholder}}</text>
   </view>
 </view>

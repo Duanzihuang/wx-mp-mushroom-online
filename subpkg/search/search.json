@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "course-list": "../../components/course-list/course-list",
+    "van-search": "@vant/weapp/search/index"
+  }
+}

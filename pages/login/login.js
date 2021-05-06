@@ -1,28 +1,39 @@
 // pages/login/login.js
-import { fetch } from '../../utils/fetch.js'
+import {
+  request
+} from '../../utils/request.js'
 
 Page({
   // 微信授权登录
-  wxLogin(e) {
-    const { errMsg } = e.detail
-    if (errMsg === 'getUserInfo:fail auth deny') return
+  async wxLogin() {
+    const res = await wx.getUserProfile({
+      desc: '为了给你提供更好的服务~'
+    }).catch(err => {
+      console.log('err is ', err)
+    })
+
+    if (!res) return
 
     // 进行微信授权登录
     wx.login({
-      success: async ({ code }) => {
-        const res = await fetch({
+      success: async ({
+        code
+      }) => {
+        const res1 = await request({
           url: 'user/wxlogin',
           method: 'POST',
           tip: '登录中...',
           isNeedAuth: false,
           data: {
             code,
-            nickname: e.detail.userInfo.nickName,
-            avatar: e.detail.userInfo.avatarUrl
+            nickname: res.userInfo.nickName,
+            avatar: res.userInfo.avatarUrl
           }
         })
 
-        const { status } = res.data
+        const {
+          status
+        } = res1
 
         if (status === 0) {
           // 提示
@@ -32,7 +43,7 @@ Page({
           })
 
           // 保存到本地
-          wx.setStorageSync('my_token', res.data.token)
+          wx.setStorageSync('my_token', res1.token)
 
           // 跳转到首页去
           wx.reLaunch({
@@ -46,7 +57,7 @@ Page({
   // 跳转到手机号登录
   phoneLogin() {
     wx.navigateTo({
-      url: '/pages/phone-login/phone-login',
+      url: '/subpkg/phone-login/phone-login'
     })
   }
 })

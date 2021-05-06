@@ -1,9 +1,5 @@
 /* components/search-bar/search-bar.wxss */
-.weui-icon-search_in-box {
-  position: absolute;
-  left: 8px;
-  top: 7px;
-}
+/* components/search-bar/search-bar.wxss */
 .weui-search-bar__box {
   position: relative;
   padding-left: 30px;
@@ -12,6 +8,11 @@
   box-sizing: border-box;
   z-index: 1;
   margin-bottom: 8px;
+}
+.weui-icon-search_in-box {
+  position: absolute;
+  left: 8px;
+  top: 7px;
 }
 .weui-search-bar__input {
   height: 28px;

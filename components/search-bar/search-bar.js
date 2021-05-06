@@ -9,9 +9,8 @@ Component({
 
   methods: {
     goToSearchPage() {
-      // wx.navigateTo({
-      //   url: '/pages/search/search',
-      // })
+      console.log('---search-bar---click')
+      // 触发自定义事件
       this.triggerEvent('myevent')
     }
   }

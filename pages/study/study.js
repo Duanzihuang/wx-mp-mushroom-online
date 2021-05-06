@@ -1,5 +1,5 @@
 // pages/study/study.js
-import {fetch} from '../../utils/fetch'
+import {request} from '../../utils/request'
 Page({
 
   /**
@@ -19,10 +19,19 @@ Page({
   },
     
   async getStudyProgressData(){
-    const res = await fetch({url: 'study/progress'})
+    const res = await request({url: 'study/progress'})
+    res.message.forEach(item => {
+      if (item.study_progress <= 30) {
+        item.color = '#ff0000'
+      } else if (item.study_progress <=80){
+        item.color = '#ff9a2a'
+      } else {
+        item.color = '#b4d66e'
+      }
+    })
     this.setData({
-      isEmpty: res.data.message.length  === 0,
-      studyProgresses: res.data.message
+      isEmpty: res.message.length  === 0,
+      studyProgresses: res.message
     })
   }
 })

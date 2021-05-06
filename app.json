@@ -1,18 +1,25 @@
 {
   "pages": [
     "pages/login/login",
-    "pages/phone-login/phone-login",
     "pages/home/home",
     "pages/course/course",
     "pages/study/study",
-    "pages/my/my",
-    "pages/course-detail/course-detail",
-    "pages/search/search"
+    "pages/my/my"
+  ],
+  "subPackages": [
+    {
+      "root": "subpkg",
+      "pages": [
+        "phone-login/phone-login",
+        "course-detail/course-detail",
+        "search/search"
+      ]
+    }
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "酷丁鱼课堂",
+    "navigationBarTitleText": "蘑菇在线",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
@@ -42,6 +49,8 @@
       "selectedIconPath": "assets/tabs/icon_my_selected@2x.png"
     }]
   },
-  "style": "v2",
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index"
+  },
   "sitemapLocation": "sitemap.json"
 }
